@@ -6,4 +6,4 @@ install:
         - pip install pandas
         - pip install numpy
 script:
-        python tst_comp_csv.py
+        python tst/tst_comp_csv.py
