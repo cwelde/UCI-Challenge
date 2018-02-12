@@ -5,5 +5,10 @@ python:
 install:
         - pip install pandas
         - pip install numpy
+
+
+before_script:
+        - wget http://rapid-hub.org/data/angles_UCI_CS.csv
+        - wget http://rapid-hub.org/data/angles_UCI_CS_out.csv
 script:
         python tst/tst_comp_csv.py
