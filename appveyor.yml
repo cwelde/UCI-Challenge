@@ -5,15 +5,10 @@ environment:
          PYTHON_ARCH: 64
 
 
-before_install:
-        - pip install pandas
-        - pip install numpy
-
-before_script:
-        - wget http://rapid-hub.org/data/angles_UCI_CS.csv
-        - wget http://rapid-hub.org/data/angles_UCI_CS.out.csv
+install:
+  - ps: pip install -r requirements.pip
  
 test_script:
-        python tst/tst_comp_csv.py
+  - ps: sh tst/tst_repr.sh
 
 
