@@ -6,6 +6,9 @@ matrix:
               sudo: required
             - os: osx
 
+before_install:
+   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then apt-get --version ; fi
+
 
 install:
         - pip install pandas
