@@ -11,4 +11,4 @@ before_script:
         - wget http://rapid-hub.org/data/angles_UCI_CS.csv
         - wget http://rapid-hub.org/data/angles_UCI_CS_out.csv
 script:
-       - sh /tst/test_repr.sh
+       - sh tst/test_repr.sh
