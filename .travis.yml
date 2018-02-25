@@ -9,7 +9,7 @@ matrix:
 
 before_install:
      #Linux
-   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
+   - if [ "$TRAVIS_OS_NAME" == "linux" ]; 
      then apt-get --version ; fi
      #Get Version
    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
@@ -21,15 +21,15 @@ before_install:
    - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo easy_install pip ; fi
 
 install:
-        - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
+        - if [ "$TRAVIS_OS_NAME" == "linux" ]; 
           then sudo pip install -r requirements.pip ; fi
 
           #FOR OXS --- PIP INSTALL -R REQUIREMENTS.PIP IS NOT WORKING
           #MANUALLY INSTALLING PACKAGES
 
-        - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip install numpy ; fi
+        - if [ "$TRAVIS_OS_NAME" == "osx" ]; then pip install numpy ; fi
 
-         -if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip install pandas ; fi
+        - if [ "$TRAVIS_OS_NAME" == "osx" ]; then pip install pandas ; fi
 
 
 before_script:
