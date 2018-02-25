@@ -11,7 +11,7 @@ before_install:
    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
      then apt-get --version ; fi
    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
-     then sudo apt-get install -y $(grep -v -E '(^#|^$)' requirements.apt) ; fi
+     then sudo apt-get install -y $(grep -vE '(^#|^$)' requirements.apt) ; fi
 
 install:
         - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install -r requirements.pip ; fi
