@@ -27,11 +27,9 @@ install:
           #FOR OXS --- PIP INSTALL -R REQUIREMENTS.PIP IS NOT WORKING
           #MANUALLY INSTALLING PACKAGES
 
-        - if [[ "$TRAVIS_OS_NAME" == "osx" ]];
-          then pip install numpy ; fi
+        - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip install numpy ; fi
 
-         -if [[ "$TRAVIS_OS_NAME" == "osx" ]];
-          then pip install pandas ; fi
+         -if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pip install pandas ; fi
 
 
 before_script:
