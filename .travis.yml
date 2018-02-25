@@ -8,13 +8,24 @@ matrix:
 # This is for Linux and OSX
 
 before_install:
+     #Linux
    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
      then apt-get --version ; fi
+     #Get Version
    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
      then sudo apt-get install -y $(grep -vE '(^#|^$)' requirements.apt) ; fi
+     #Get requirements from requirements.apt for linux
 
+     #osx
+   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew --version ; fi
+   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then sudo easy_install pip ; fi
+   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install $(grep -vE '(^#|^$)'requirements.brw) ; fi
 install:
-        - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install -r requirements.pip ; fi
+        - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
+          then sudo pip install -r requirements.pip ; fi
+
+        - if [[ "$TRAVIS_OS_NAME" == "osx" ]];
+          then pip install -r requirements.pip ; fi
 
 
 before_script:
