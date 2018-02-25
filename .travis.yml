@@ -5,14 +5,14 @@ matrix:
             - os: linux
               sudo: required
             - os: osx
+# This is for Linux and OSX
 
 before_install:
    - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then apt-get --version ; fi
-
+   - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -y $(grep -v -E '(^#|^$)' requirements.apt) ; fi
 
 install:
-        - pip install pandas
-        - pip install numpy
+        - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo pip install -r requirements.pip ; fi
 
 
 before_script:
