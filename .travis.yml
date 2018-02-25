@@ -24,8 +24,14 @@ install:
         - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; 
           then sudo pip install -r requirements.pip ; fi
 
+          #FOR OXS --- PIP INSTALL -R REQUIREMENTS.PIP IS NOT WORKING
+          #MANUALLY INSTALLING PACKAGES
+
         - if [[ "$TRAVIS_OS_NAME" == "osx" ]];
-          then pip install -r requirements.pip ; fi
+          then pip install numpy ; fi
+
+         -if [[ "$TRAVIS_OS_NAME" == "osx" ]];
+          then pip install pandas ; fi
 
 
 before_script:
