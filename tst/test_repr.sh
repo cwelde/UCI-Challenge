@@ -1,7 +1,8 @@
+cwd=$(pwd)
+input="$cwd/angles/UCI_CS.csv"
+output="$cwd/output.csv"
 
-
-
-#Get CSV files
+#downloading csv
 sh tst/tst_dwnl.sh
 
 
