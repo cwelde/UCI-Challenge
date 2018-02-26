@@ -27,8 +27,7 @@ install:
         - if [ "$TRAVIS_OS_NAME" == "linux" ]; 
           then sudo pip install -r requirements.pip ; fi
 
-        - if [ "$TRAVIS_OS_NAME" == "osx" ]; then sudo pip install $(grep numpy requirements.pip)
-        - if [ "$TRAVIS_OS_NAME" == "osx" ]; then sudo pip install -r requirements.pip
+        - if [ "$TRAVIS_OS_NAME" == "osx" ]; then sudo pip install -r requirements.pip ; fi
 
 
 
