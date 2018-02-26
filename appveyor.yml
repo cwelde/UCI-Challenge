@@ -14,6 +14,6 @@ install:
   - "%PYTHON%/Scripts/pip.exe install numpy"
  
 test_script:
-  - ps: sh tst/tst_repr.sh
+  - ps: tst/tst_repr.sh
 
 
