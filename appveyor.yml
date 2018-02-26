@@ -1,13 +1,13 @@
 environment:
   matrix:
-       - PYTHON: "C:\\Python36"
-         PYTHON_VERSION: 3.6
-         PYTHON_ARCH: 64
+       - PYTHON: "C:\\Python34"
+         PYTHON_VERSION: "3.4.1"
+         PYTHON_ARCH: "32"
 
 
 install:
-  - ps: choco install (get-content requirements.win)
-  - ps: pip install -r requirements.pip
+  - "%PYTHON%/Scripts/pip.exe install pandas"
+  - "%PYTHON%/Scripts/pip.exe install numpy"
  
 test_script:
   - ps: sh tst/tst_repr.sh
