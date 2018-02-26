@@ -20,7 +20,7 @@ before_install:
 
      #osx
    - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew --version ; fi
-   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew reinstall $(grep -v -E '(^#|^$)' requirements.brw ; fi
+   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew reinstall $(grep -v -E '(^#|^$)' requirements.brw) ; fi
   
 
 install:
