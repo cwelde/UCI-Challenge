@@ -13,7 +13,11 @@ install:
   - ps: choco install (get-content requirements.win)
   - "%PYTHON%/Scripts/pip.exe install pandas"
   - "%PYTHON%/Scripts/pip.exe install numpy"
- 
+    
+before_script:
+        - wget http://rapid-hub.org/data/angles_UCI_CS.csv
+        - wget http://rapid-hub.org/data/angles_UCI_CS_out.csv
+
 test_script:
   - ps: sh tst/test_repr.sh
 
