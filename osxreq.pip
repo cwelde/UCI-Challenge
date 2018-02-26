@@ -1,7 +1,0 @@
-#Needed to make a second requirements.pip for OSX
-#Because current version of numpy is not working with OSX
-#So need to use version 1.8
-
-
-numpy==1.8.0rc1
-pandas==0.22.0
