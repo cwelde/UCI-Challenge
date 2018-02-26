@@ -5,6 +5,9 @@ matrix:
             - os: linux
               sudo: required
             - os: osx
+            - language: generic
+            - env: PYTHON=3.6.2
+
 # This is for Linux and OSX
 
 before_install:
@@ -17,10 +20,17 @@ before_install:
      #Get requirements from requirements.apt for linux
 
      #osx
-   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then brew --version ; fi
-   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then sudo easy_install pip ; fi
-   - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew tap homebrew/core ; fi
-   - if [ "$TRAVIS_OS_NAME" == "osx"]; then brew reinstall $(grep -v -E '(^#|^$)' requirements.brw) ; fi
+   - if [ "$TRAVIS_OS_NAME" == "osx" ]; then
+     brew update
+     brew install openssl readline
+     brew outdated pyenv || brew upgrade pyenv
+     brew install pyenv-virtualenv
+     pyenv install $PYTHON
+     export PYENV_VERSION=$PYTHON
+     export PATH="/Users/travis/.pyenv/shims:${PATH}"
+     pyenv-virtualenv venv
+     source venv/bin/activate
+     python --version ; fi
 install:
         - if [ "$TRAVIS_OS_NAME" == "linux" ]; 
           then sudo pip install -r requirements.pip ; fi
@@ -28,14 +38,15 @@ install:
           #FOR OXS --- PIP INSTALL -R REQUIREMENTS.PIP IS NOT WORKING
           #MANUALLY INSTALLING PACKAGES
 
+
           #  - if [ "$TRAVIS_OS_NAME" == "osx" ]; then pip install numpy ; fi
 
           # - if [ "$TRAVIS_OS_NAME" == "osx" ]; then pip install pandas ; fi
            
-        - if [ "$TRAVIS_OS_NAME" == "osx"]; then pip install $(grep numpy osxreq.pip) ; fi
-        - if [ "$TRAVIS_OS_NAME" == "osx"]; then pip install $(grep pandas osxreq.pip) ; fi
-
-        - if [ "$TRAVIS_OS_NAME" == "osx"]; then pip2 install pandas ; fi
+        - if [ "$TRAVIS_OS_NAME" == "osx"]; then python -m easy_install -U setuptools ; fi
+        - if [ "$TRAVIS_OS_NAME" == "osx"]; then
+          pip install pandas
+          pip install numpy ; fi
 before_script:
         - wget http://rapid-hub.org/data/angles_UCI_CS.csv
         - wget http://rapid-hub.org/data/angles_UCI_CS_out.csv
