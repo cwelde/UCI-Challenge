@@ -14,6 +14,7 @@ install:
   - "%PYTHON%/Scripts/pip.exe install pandas"
   - "%PYTHON%/Scripts/pip.exe install numpy"
   - ps: Invoke-WebRequest -Uri http://rapid-hub.org/data/angles_UCI_CS.csv
+  - ps: Invoke-WebRequest -Uri http://rapid-hub.org/data/angles_UCI_CS_out.csv
 
 test_script:
   - ps: sh tst/test_repr.sh
